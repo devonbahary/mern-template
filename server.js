@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+require('./config/config');
 
 const items = require('./routes/api/items');
 
@@ -10,11 +11,8 @@ const app = express();
 // body-parser middleware
 app.use(bodyParser.json());
 
-// DB config
-const db = require('./config/keys').mongoURI;
-
 // connect to MongoDB
-mongoose.connect(db)
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected.'))
   .catch(err => console.log(err));
 
