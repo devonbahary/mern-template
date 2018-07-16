@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { getItems } from '../actions/items';
+import { getSamples } from '../actions/samples';
 import Home from '../components/Home';
 
 class AppRouter extends React.Component {
   componentWillMount() {
-    this.props.getItems();
+    this.props.getSamples();
   };
 
   render() {
@@ -23,7 +23,7 @@ class AppRouter extends React.Component {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getItems: () => dispatch(getItems())
+  getSamples: () => dispatch(getSamples())
 });
 
 export default connect(undefined, mapDispatchToProps)(AppRouter);

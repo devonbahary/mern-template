@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 require('./config/config');
 
-const items = require('./routes/api/items');
+const samples = require('./routes/api/samples');
 
 const app = express();
 
@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch(err => console.log(err));
 
 // use routes
-app.use('/api/items', items);
+app.use('/api/samples', samples);
 
 if (process.env.NODE_ENV === 'production') {
   // set static folder
@@ -31,3 +31,5 @@ if (process.env.NODE_ENV === 'production') {
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on port:${port}`));
+
+module.exports = { app };

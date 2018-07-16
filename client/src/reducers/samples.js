@@ -1,40 +1,40 @@
 const initialState = {
-  items: [],
+  samples: [],
   loading: false
 };
 
 export default (prevState = initialState, action) => {
   switch (action.type) {
-    case 'GET_ITEMS':
+    case 'GET_SAMPLES':
       return {
         ...prevState,
-        items: action.payload,
+        samples: action.payload,
         loading: false
       };
-    case 'SET_LOADING_ITEMS':
+    case 'SET_LOADING_SAMPLES':
       return {
         ...prevState,
         loading: true
       };
-    case 'ADD_ITEM':
+    case 'ADD_SAMPLE':
       return {
         ...prevState,
-        items: [ ...prevState.items, action.payload ]
+        samples: [ ...prevState.samples, action.payload ]
       };
-    case 'UPDATE_ITEM':
+    case 'UPDATE_SAMPLE':
         return {
           ...prevState,
-          items: prevState.items.map(item => item._id === action.id ? (
+          samples: prevState.samples.map(sample => sample._id === action.id ? (
             {
-              ...item,
+              ...sample,
               ...action.updates
             }
-          ) : item)
+          ) : sample)
         };
-    case 'REMOVE_ITEM':
+    case 'REMOVE_SAMPLE':
         return {
           ...prevState,
-          items: prevState.items.filter(item => item._id !== action.id)
+          samples: prevState.samples.filter(sample => sample._id !== action.id)
         };
     default:
       return prevState;
