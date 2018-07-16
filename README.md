@@ -134,9 +134,15 @@ if (process.env.NODE_ENV === 'test') {
   process.env.MONGODB_URI = 'mongodb://localhost:27017/sample-app-test';
 } else if (process.env.NODE_ENV === 'dev') {
   process.env.MONGODB_URI = 'mongodb://localhost:27017/sample-app';
-} else {
-  // process.env.MONGODB_URI = 'mongodb://brad:brad123@ds135421.mlab.com:35421/traversy-mern';
 }
+
+// ELSE: add your MONGODB_URI here
+
 ```
 
-The commented-out URI points to a [mLab](https://mlab.com/) database, which you'll have to create on your own, but Heroku also assigns its own `process.env.MONGOB_URI` when [configured for MongoDB](https://devcenter.heroku.com/articles/mean-apps-restful-api#provision-a-mongodb-database).
+In an else clause, set `process.env.MONGODB_URI` to your own database. I'm aware of a couple options:
+* [mLab](https://mlab.com/) database
+* Heroku assigns its own `process.env.MONGOB_URI` when [configured for MongoDB](https://devcenter.heroku.com/articles/mean-apps-restful-api#provision-a-mongodb-database).
+
+
+And that's it! Happy **MERN**ing!
