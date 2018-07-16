@@ -30,7 +30,12 @@ const Home = () => (
     </ul>
     <h3>BACK-END [Node, Express, MongoDB]</h3>
     <ul>
-      <li>MongoDB (Mongoose)</li>
+      <li>
+        MongoDB (Mongoose)
+        <ul>
+          <li>Databases configured for <b>development</b> + <b>testing</b></li>
+        </ul>
+      </li>
       <li>
         Express
         <ul>
